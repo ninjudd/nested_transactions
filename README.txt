@@ -7,7 +7,7 @@ almost entirely from a post by William Robinson (airbaggins) on RailsTrac a few 
 
 == INSTALL:
 
- sudo gem install nested_transactions
+  sudo gem install nested_transactions
 
 == LICENSE:
 
