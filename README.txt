@@ -1,7 +1,7 @@
 = NestedTransactions
 
 NestedTransactions adds nested database transactions to any ActiveRecord::ConnectionAdapter
-that supports savepoints. I've tested it with Postgres and MySQL. This code is taken
+that supports savepoints. I've tested it with Postgres and MySQL. The code is taken
 almost entirely from a post by William Robinson (airbaggins) on RailsTrac a few years ago
 (http://dev.rubyonrails.org/attachment/ticket/5457/nested_transactions.rb).
 
