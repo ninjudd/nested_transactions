@@ -1,9 +1,9 @@
 module NestedTransactions
-  VERSION = '1.0.0' if not defined?(VERSION)
+  VERSION = '1.0.0'
 
   def self.init
-    ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.send(:include, self)
-#    ActiveRecord::ConnectionAdapters::MysqlAdapter.send(:include, self)
+    ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.send(:include, self) if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+    ActiveRecord::ConnectionAdapters::MysqlAdapter.send(:include, self)      if defined?(ActiveRecord::ConnectionAdapters::MysqlAdapter)
   end
 
   def self.included(mod)
