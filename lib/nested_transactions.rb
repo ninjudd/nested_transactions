@@ -1,5 +1,5 @@
 module NestedTransactions
-  VERSION = '1.0.0'
+  VERSION = '1.0.0' unless defined?(VERSION)
 
   def self.init
     ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.send(:include, self) if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
