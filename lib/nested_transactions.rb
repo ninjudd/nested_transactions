@@ -20,6 +20,14 @@ module NestedTransactions
     else
       execute "BEGIN"
     end
+  rescue ActiveRecord::StatementInvalid => e
+    # There is an aborted transaction, so we have to reset our count.
+    if e.message =~ /SAVEPOINT can only be used in transaction blocks/
+      @nested_transaction_count = 0
+      retry
+    else
+      raise e
+    end
   end
   
   def commit_db_transaction_with_nesting
