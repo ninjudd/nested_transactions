@@ -1,12 +1,10 @@
-# -*- ruby -*-
+require 'rake/testtask'
+require 'bundler/gem_tasks'
 
-require 'rubygems'
-require 'hoe'
-require './lib/nested_transactions.rb'
-
-Hoe.new('NestedTransactions', NestedTransactions::VERSION) do |p|
-  # p.rubyforge_name = 'NestedTransactionsx' # if different than lowercase project name
-   p.developer('Justin Balthrop', 'code@justinbalthrop.com')
+Rake::TestTask.new do |t|
+  t.libs = ['lib']
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = false
 end
 
-# vim: syntax=Ruby
+task :default => :test
